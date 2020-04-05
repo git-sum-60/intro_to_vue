@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue.js Intro</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ headerSentence }}</h1>
+    <p>{{ message }}</p>
+    <button v-on:click="changeMessage()">Click Me</button>
+    <br>
+    <br>
+    <div><input type="text" v-model="headerSentence"></div>
+  </div>
+  <script src="index.js"></script>
+  <div>{{ yetAnotherMessage }}</div>
+  <script>
+    var app = new Vue({
+      // required: el, data (value needs to be object), methods (value needs to be object)
+      el: "#app",
+      data: {
+        message: Hello Vue!,
+        headerSentence: Welcome to VueJS!,
+        yetAnotherMessage: Another message?
+      },
+      methods: {
+        changeMessage: function() {
+          this.message = "Whoa...",
+        }
+        otherMethod: function() {
+          this.changeMessage();
+        }
+      }
+    });
+  </script>
+</body> 
+</html>
