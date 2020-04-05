@@ -8,11 +8,21 @@
 <body>
   <div id="app">
     {{ message }}
+    
     <p>{{ location }}</p>
     <button v-on:click="changeMessage()">Click here to change the message</button>
     Show your message here: <input type="text" v-model="message">
     <p><button v-on:click="toggleQualified()">Show/hide ssn</button></p>
     <p v-if="isQualified">Here is some some secret info: my ssn is 8675309</p>
+    <br />
+    <!-- {{ fruits }} -->
+    <!-- fruits.each do |fruit| -->
+    <div v-for="fruit in fruits">
+      <!-- <p>here is a fruit</p> -->
+      <p>{{ fruit }}</p>
+    </div>
+    <input type="text" v-model="newFruit">
+    <button v-on:click="addFruit()">Add the fruit</button>
   </div>
       
 </body>
@@ -24,7 +34,14 @@
   data: {
     message: "Goodbye Vue!",
     location: "buffalo",
-    isQualified: true
+    isQualified: true,
+    fruits: [
+      "mango",
+      "banana",
+      "navel orange",
+      "pear"      
+    ],
+    newFruit: ""
   },
   methods: {
     changeMessage: function() {      
@@ -39,6 +56,14 @@
       } else {
         this.isQualified = true;
       }      
+    },
+    addFruit: function() {
+      console.log('adding the fruit...');
+      // find the new fruit
+      console.log(this.newFruit);
+      // add the fruit to the array
+      console.log(this.fruits)
+      this.fruits.push(this.newFruit);
     }
   }
 });
