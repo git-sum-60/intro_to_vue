@@ -11,6 +11,8 @@
     <p>{{ location }}</p>
     <button v-on:click="changeMessage()">Click here to change the message</button>
     Show your message here: <input type="text" v-model="message">
+    <p><button v-on:click="toggleQualified()">Show/hide ssn</button></p>
+    <p v-if="isQualified">Here is some some secret info: my ssn is 8675309</p>
   </div>
       
 </body>
@@ -21,12 +23,22 @@
   el: "#app",
   data: {
     message: "Goodbye Vue!",
-    location: "buffalo"
+    location: "buffalo",
+    isQualified: true
   },
   methods: {
     changeMessage: function() {      
       console.log('changing the message');      
       this.message = 'helllloooooooo......';
+    },
+    toggleQualified: function() {
+      console.log('changing qualifications');
+      console.log(this.isQualified);
+      if (this.isQualified === true) {
+        this.isQualified = false;
+      } else {
+        this.isQualified = true;
+      }      
     }
   }
 });
