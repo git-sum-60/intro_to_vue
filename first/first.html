@@ -8,7 +8,8 @@
 <body>
   <div id="app">
     {{ message }}
-    <h1>{{ location }}</h1>
+    <p>{{ location }}</p>
+    <button v-on:click="changeMessage()">Click here to change the message</button>
   </div>
       
 </body>
@@ -22,7 +23,10 @@
     location: "buffalo"
   },
   methods: {
-  
+    changeMessage: function() {      
+      console.log('changing the message');      
+      this.message = 'helllloooooooo......';
+    }
   }
 });
 
